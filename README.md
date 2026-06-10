@@ -2,9 +2,11 @@
 
 INTEGRANTES:
 
-AARON SHARIFF HURTADO SANTAMARIA (100%)
-SERGIO (100%)
-VICTOR (100%)
+- **AARON SHARIFF HURTADO SANTAMARIA (100%)
+- **SERGIO (100%)
+- **VICTOR (100%)
+
+
 
 Aplicación web desarrollada en **React** que permite a estudiantes explorar un catálogo de cursos, inscribirse, y gestionar sus cursos. La aplicación es una **Single Page Application (SPA)**, lo que significa que funciona sin recargar la página al navegar entre secciones.
 
