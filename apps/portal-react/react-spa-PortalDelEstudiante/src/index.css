@@ -61,7 +61,6 @@ body {
     background-color: var(--bg);
   }
 }
-}
 
 @media (prefers-color-scheme: dark) {
   :root {

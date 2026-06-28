@@ -1,264 +1,161 @@
-# 🎓 Portal del Estudiante - SPA React
+# 🎓 EduTech Academy - Experiencia Integrada (PA4)
 
-INTEGRANTES:
-
-- AARON SHARIFF HURTADO SANTAMARIA (100%)
-- SERGIO QUISPILLOCLLA (100%)
-- VICTOR CHAVEZ AGUILAR (100%)
-
+## 👥 Integrantes del Grupo
+* **AARON SHARIFF HURTADO SANTAMARIA** (100% de participación)
+* **SERGIO QUISPILLOCLLA** (100% de participación)
+* **VICTOR CHAVEZ AGUILAR** (100% de participación)
 
 
-Aplicación web desarrollada en **React** que permite a estudiantes explorar un catálogo de cursos, inscribirse, y gestionar sus cursos. La aplicación es una **Single Page Application (SPA)**, lo que significa que funciona sin recargar la página al navegar entre secciones.
+## 🎥 Video de Sustentación en YouTube
+El video explicativo del proyecto, detallando la arquitectura y mostrando a todos los integrantes con sus cámaras encendidas, se encuentra disponible en el siguiente enlace:
 
-## ¿Qué Puede Hacer?
-
-- 📚 **Ver cursos disponibles** con información completa (docente, precio, duración, etc.)
-- 🔍 **Filtrar y buscar** cursos por categoría, modalidad o nombre
-- ✅ **Inscribirse y desinscribirse** de cursos
-- 📊 **Ver el progreso** de los cursos en los que estoy inscrito
-- 👤 **Ver tu perfil** con estadísticas de desempeño
-- 📱 **Usar en cualquier dispositivo**: funciona en celular, tablet y computadora
-
-## ⚙️ Tecnologías Usadas
-
-| Tecnología | Versión | Para Qué |
-|---|---|---|
-| React | 19.2.6 | Framework principal (interface) |
-| Vite | 8.0.12 | Herramienta que empaqueta y ejecuta el código |
-| React Router | 7.17.0 | Navegación entre páginas sin recargar |
-| Context API | - | Compartir datos entre componentes |
-| CSS | Vanilla | Estilos visuales |
-
-## 📋 Antes de Empezar
-
-Necesitas tener instalado en tu computadora:
-
-- **Node.js** versión 16 o superior (descargar desde [nodejs.org](https://nodejs.org))
-- **npm** (viene incluido con Node.js)
-
-Para verificar que están instalados, abre una terminal y ejecuta:
-
-```bash
-node --version
-npm --version
-```
-
-Deberías ver números de versión en ambos casos.
-
-## 🔧 Instalación y Ejecución
-
-### Paso 1: Ir a la carpeta del proyecto
-
-Abre una terminal (PowerShell, CMD o bash) y navega a la carpeta del proyecto:
-
-### Paso 2: Instalar las dependencias
-
-Ejecuta este comando para descargar todas las librerías que necesita la aplicación:
-
-```bash
-npm install
-```
-
-Este proceso puede tardar 1-2 minutos. Verás una carpeta `node_modules` crearse (no la borres, es importante).
-
-### Paso 3: Ejecutar la aplicación
-
-Una vez instaladas las dependencias, inicia el servidor de desarrollo:
-
-```bash
-npm run dev
-```
-
-Verás algo como:
-```
-  VITE v8.0.12  ready in 125 ms
-
-  ➜  Local:   http://localhost:5173/
-  ➜  Press h to show help
-```
-
-### Paso 4: Acceder a la aplicación
-
-Abre tu navegador (Chrome, Firefox, Edge, Safari) y ve a:
-
-```
-http://localhost:5173
-```
-
-¡La aplicación ya debe estar funcionando! 🎉
-
-## 🛑 Detener la Aplicación
-
-Para cerrar el servidor, presiona `Ctrl + C` en la terminal.
-
-## � Detener la Aplicación
-
-Para cerrar el servidor, presiona `Ctrl + C` en la terminal.
+📺 Enlace de Youtube: **[]()**
 
 ---
 
-## 📁 Estructura del Proyecto
+## 📝 Descripción del Proyecto
+Este proyecto es una solución integral para la **Gestión de Cursos e Inscripciones** de la institución **EduTech Academy**. La arquitectura se encuentra desacoplada y organizada en tres grandes módulos a fin de separar responsabilidades técnicas y optimizar el rendimiento:
 
-La carpeta `src/` contiene todo el código de la aplicación:
+1. **Backend REST API**: Desarrollado con Node.js, Express y MongoDB, encargado de proveer la persistencia de datos (cursos, usuarios, inscripciones), cifrado de contraseñas (`bcryptjs`) y control de acceso con seguridad basada en tokens (**JWT**).
+2. **Portal del Estudiante (React SPA)**: Aplicación cliente interactiva desarrollada en **React (Vite)** para alumnos autenticados. Permite visualizar el panel de inscripciones, explorar cursos, ver el detalle dinámico de un curso e inscribirse o desinscribirse en tiempo real.
+3. **Sitio Público y Catálogo (Next.js)**: Módulo web público y optimizado para SEO desarrollado con **Next.js (App Router)**. Permite que usuarios visitantes no autenticados y motores de búsqueda naveguen por la página de inicio, conozcan las estadísticas de la academia y accedan al catálogo y fichas dinámicas de cursos cargadas del backend mediante **Server-Side Rendering (SSR)**.
 
+---
+
+## ⚙️ Tecnologías Usadas
+
+| Capa / Tecnología | Herramienta / Librería | Propósito |
+| :--- | :--- | :--- |
+| **Base de Datos** | MongoDB & Mongoose | Persistencia documental y modelado relacional de datos. |
+| **Backend REST API** | Node.js, Express, Helmet, CORS | Lógica de negocio, middleware de protección y endpoints seguros. |
+| **Seguridad Backend** | JSON Web Tokens (JWT) & Bcryptjs | Emisión de sesiones seguras firmadas y hash de contraseñas. |
+| **Frontend SPA Portal** | React 19, Vite, React Router 7 | Portal privado con navegación interactiva sin recarga de página. |
+| **Conectividad SPA** | Axios | Cliente HTTP con interceptores automáticos de inyección y expiración de tokens. |
+| **Frontend Público (SEO)** | Next.js 16 (App Router) | Páginas de inicio, catálogo y detalle con SSR y compatibilidad estática. |
+| **Estilos Visuales** | Vanilla CSS | Diseño de interfaces responsive de primer nivel sin librerías pesadas. |
+
+---
+
+## 📁 Estructura del Repositorio
+```text
+PA4/
+├── README.md               → Documentación principal del proyecto integrador.
+├── .env.example            → Archivo plantilla con las variables de entorno de todos los proyectos.
+│
+├── backend/
+│   └── api-node-express/
+│       └── proyecto-node-mongodb/
+│           ├── config/     → Conexión a Mongoose.
+│           ├── controllers/→ Lógica de Cursos, Autenticación e Inscripciones.
+│           ├── middleware/ → Validador de firma y expiración del JWT (protegerRuta).
+│           ├── models/     → Esquemas de base de datos (Curso, User, Enrollment).
+│           ├── routes/     → Endpoints expuestos de la API REST.
+│           ├── seed.js     → Script de precarga de base de datos.
+│           └── server.js   → Punto de entrada del servidor Express (Puerto 5000).
+│
+├── apps/
+│   ├── portal-react/
+│   │   └── react-spa-PortalDelEstudiante/
+│   │       ├── src/
+│   │       │   ├── components/ → Navbar, TarjetaCurso, ProtectedRoute.
+│   │       │   ├── context/    → CursosContext (llamadas API, login, logout, estados).
+│   │       │   ├── pages/      → CursosDelEstudiante (Home), CatalogoCursos, DetalleCurso, Login.
+│   │       │   └── services/   → api.js (Cliente HTTP Axios centralizado).
+│   │       └── package.json    → Scripts de desarrollo y producción (Puerto 5173).
+│   │
+│   └── landing-next/           → Proyecto Next.js (Puerto 3000).
+│       └── src/
+│           └── app/
+│               ├── cursos/     → Catálogo de cursos con carga del lado del servidor (SSR).
+│               ├── cursos/[id]/→ Ficha dinámica del curso optimizada para SEO.
+│               ├── layout.js   → Estructura global (Navbar público y Footer).
+│               └── page.js     → Página de inicio pública (Landing Page).
 ```
-src/
-├── components/        → Partes reutilizables (Navbar, TarjetaCurso, Usuario)
-├── pages/            → Páginas completas (Catálogo, Mis Inscripciones)
-├── context/          → Lugar donde se guarda la información global (cursos, usuario)
-├── hooks/            → Funciones personalizadas para acceder a datos
-├── utils/            → Funciones auxiliares (formateo de dinero, fechas, etc.)
-├── data/             → Información de ejemplo (cursos y inscripciones)
-├── styles/           → Archivos CSS para el diseño visual
-├── App.jsx           → Archivo principal que une todo
-├── main.jsx          → Punto de entrada de la aplicación
-└── index.css         → Estilos globales
-```
 
-## 🧭 Navegación en la Aplicación
+---
 
-La aplicación tiene 3 pantallas principales:
+## 📋 Variables de Entorno (.env)
+Se ha provisto un archivo `.env.example` en la raíz. Para desarrollo local, crea los correspondientes archivos `.env` en cada módulo:
 
-| Ruta | Nombre | Qué ves |
-|---|---|---|
-| `/` | **Mis Inscripciones** (HOME) | Cursos en los que estás inscrito |
-| `/catalogocursos` | **Catálogo** | Todos los cursos disponibles |
-| `/usuario` | **Mi Perfil** | Tu información y estadísticas |
+* **En el Backend (`backend/api-node-express/proyecto-node-mongodb/.env`)**:
+  ```env
+  PORT=5000
+  MONGO_URI=mongodb://localhost:27017/bd_portal_estudiante
+  JWT_SECRET=tu_clave_secreta_super_segura_aqui
+  ```
+* **En el Cliente Next.js (`apps/landing-next/.env.local`)**:
+  ```env
+  API_URL=http://localhost:5000/api
+  NEXT_PUBLIC_API_URL=http://localhost:5000/api
+  ```
+* **En la SPA React (`apps/portal-react/react-spa-PortalDelEstudiante/.env`)** (Opcional, por defecto usa fallback a localhost:5000):
+  ```env
+  VITE_API_URL=http://localhost:5000/api
+  ```
 
-Puedes navegar entre ellas usando el menú en la parte superior.
+---
 
-## 🎯 Funcionalidades Principales
+## 🔧 Instrucciones de Instalación y Ejecución
 
-### 1. Catálogo de Cursos
+Sigue estos pasos en orden para iniciar la solución en tu máquina local:
 
-Aquí ves todos los cursos disponibles. Puedes:
+### Paso 1: Prerrequisitos
+Asegúrate de tener instalado en tu sistema:
+* **Node.js** (versión 18 o superior) e instalado y ejecutándose una instancia local de **MongoDB** en el puerto por defecto `27017`.
 
-- **Filtrar** por categoría (Frontend, Backend, Full Stack, etc.)
-- **Filtrar** por modalidad (Virtual, Presencial, Híbrida)
-- **Buscar** por nombre del curso, docente o tecnología
-- **Ordenar** por: más populares, mejor valorados, más recientes, precio
-- **Inscribirse** en cualquier curso con un botón
+---
 
-### 2. Mis Inscripciones (HOME)
-
-Tu panel personal con:
-
-- **Estadísticas**: cuántos cursos tienes, cuántos estás cursando, cuántos completaste
-- **Pestañas**: filtra cursos por estado (Todos, En progreso, Completados)
-- **Barra de progreso**: ves qué porcentaje completaste de cada curso
-- **Desinscribirse**: si quieres dejar un curso, un botón te permite hacerlo
-
-### 3. Mi Perfil
-
-Información tuya:
-
-- Avatar (tu inicial)
-- Nombre y email
-- Estadísticas de desempeño
-- Botones para editar perfil o cambiar contraseña
-
-## 📱 Responsive Design
-
-La aplicación se adapta automáticamente:
-
-- **Celular** (menos de 480px): menú hamburguesa, diseño vertical
-- **Tablet** (480px a 768px): combinación de vertical y horizontal
-- **Computadora** (más de 768px): diseño completo con sidebar
-
-Pruébalo abriendo la app en tu celular o reduciendo el tamaño de la ventana del navegador.
-
-## 📊 Datos de Ejemplo
-
-La aplicación viene con datos de ejemplo listos para usar:
-
-**6 Cursos disponibles:**
-- React Avanzado
-- Node.js y Express
-- MongoDB y Bases de Datos
-- Full Stack Development
-- Seguridad Web
-- Docker y DevOps
-
-**Usuario de ejemplo:**
-- Nombre: Carlos García
-- Email: carlos@example.com
-- Rol: Estudiante
-
-Estos datos están en la carpeta `src/data/cursos.js`.
-
-## 🔧 Comandos Útiles
+### Paso 2: Configuración y Siembra del Backend
+Abre una terminal en la carpeta del backend, instala las dependencias y ejecuta el script de siembra para precargar los cursos y el usuario de prueba:
 
 ```bash
-# Iniciar en modo desarrollo
+cd backend/api-node-express/proyecto-node-mongodb
+npm install
+
+# (Asegúrate de configurar tu .env antes de este paso si tu MongoDB no corre en localhost)
+npm run seed
+```
+El script mostrará un mensaje indicando que se han creado los cursos, el estudiante de prueba (`carlos@example.com` / `123456`) e inscripciones simuladas.
+
+Para iniciar el servidor Express en modo desarrollo:
+```bash
 npm run dev
-
-# Crear versión para producción (carpeta 'dist')
-npm run build
-
-# Ver la versión de producción localmente
-npm run preview
-
-# Verificar errores de código
-npm run lint
+# El backend iniciará en http://localhost:5000
 ```
 
-## 🚀 Cómo Usar en Producción
+---
 
-Si quieres desplegar la aplicación en internet:
+### Paso 3: Lanzar el Portal del Estudiante (React SPA)
+Abre otra terminal en la carpeta del portal de React, instala las dependencias e inicia el servidor Vite:
 
-1. **Crear un build**: `npm run build`
-2. **Subir a un servidor**: puedes usar Vercel, Netlify, GitHub Pages, etc.
-
-Para más detalles, consulta la documentación de cada plataforma.
-
-## 🐛 Solución de Problemas
-
-### Problema: "npm: comando no encontrado"
-**Solución**: Instala Node.js desde [nodejs.org](https://nodejs.org)
-
-### Problema: Puerto 5173 ya está en uso
-**Solución**: El puerto puede estar ocupado por otra aplicación. Intenta:
 ```bash
-npm run dev -- --port 3000
+cd apps/portal-react/react-spa-PortalDelEstudiante
+npm install
+npm run dev
+# La aplicación abrirá en http://localhost:5173
 ```
-Esto usará el puerto 3000 en lugar del 5173.
 
-### Problema: La página no se ve actualizada
-**Solución**: Haz refresh en el navegador (F5 o Ctrl + R)
+---
 
-### Problema: Los estilos no cargan
-**Solución**: Abre la consola del navegador (F12) y verifica si hay errores en rojo.
+### Paso 4: Lanzar el Módulo Público (Next.js)
+Abre una tercera terminal en la carpeta del sitio de Next.js, instala las dependencias e inicia el servidor de desarrollo:
 
-## 📚 Aprender Más
+```bash
+cd apps/landing-next
+npm install
+npm run dev
+# La aplicación pública abrirá en http://localhost:3000
+```
 
-Para modificar o extender la aplicación, necesitas entender:
+---
 
-- **React**: [react.dev](https://react.dev) (documentación oficial)
-- **JavaScript**: Conceptos básicos de variables, funciones, arrays
-- **CSS**: Conceptos básicos de selectores, propiedades, flexbox
-- **React Router**: [reactrouter.com](https://reactrouter.com) (para agregar más rutas)
+## 🔒 Mecanismo Responsable de Sesión y Token JWT
+El sistema aplica un flujo de autenticación robusto basado en tokens JWT (JSON Web Tokens):
 
-## 📞 Preguntas Frecuentes
+1. **Almacenamiento del Token**: Una vez que el estudiante ingresa credenciales correctas en la vista de Login de la SPA React, la API responde con un token firmado. El cliente guarda este token en `localStorage` bajo el nombre `token`.
+2. **Inyección en Peticiones**: A través del cliente centralizado Axios ([api.js](file:///c:/Users/SERGIO%20CASIQUE/Desktop/PA4/PA4/PA4/apps/portal-react/react-spa-PortalDelEstudiante/src/services/api.js)), se configura un interceptor de solicitud que detecta la existencia de este token en el storage y lo inyecta automáticamente en todas las llamadas HTTP en la cabecera `Authorization: Bearer <token>`.
+3. **Manejo de Expiración e Invalidez (401)**: Para evitar brechas de seguridad o pantallas en blanco por tokens caducados, el cliente Axios implementa un interceptor de respuesta. Si el servidor backend responde con código de estado HTTP `401 Unauthorized` (firma no válida, token alterado o expirado), la aplicación de manera automática elimina el token del almacenamiento local y redirige al usuario a la pantalla de `/login` para renovar sus credenciales de manera transparente.
+4. **Cierre de Sesión (Logout)**: El proceso de cierre de sesión destruye el token guardado en `localStorage` y vacía los estados de memoria reactiva en el Contexto de React, destruyendo cualquier rastro de la sesión del alumno y asegurando que las rutas protegidas no puedan volver a accederse sin un nuevo inicio de sesión.
 
-**P: ¿Dónde están guardados los cursos?**  
-R: En la carpeta `src/data/cursos.js`. Son datos de ejemplo, no una base de datos real.
-
-**P: ¿Cómo conecto a una base de datos de verdad?**  
-R: Necesitarías crear una API backend (con Node.js, Python, etc.) y modificar el archivo `src/context/CursosContext.jsx` para hacer peticiones HTTP en lugar de usar datos locales.
-
-**P: ¿Puedo cambiar los colores?**  
-R: Sí, edita el archivo `src/index.css` y cambia las variables de color en la sección `:root`.
-
-**P: ¿Qué pasa si cierro la ventana del navegador?**  
-R: Las inscripciones se guardan en la memoria de la aplicación. Si recargas, se reinician. Para persistencia permanente, necesitarías una base de datos.
-
-## ✨ Características de la Aplicación
-
-✅ Componentes reutilizables  
-✅ Estado global con Context API  
-✅ Navegación sin recarga de página (SPA)  
-✅ Responsive en todos los dispositivos  
-✅ Interfaz moderna y profesional  
-✅ Código limpio y bien estructurado  
-✅ Fácil de modificar y extender
+---
 

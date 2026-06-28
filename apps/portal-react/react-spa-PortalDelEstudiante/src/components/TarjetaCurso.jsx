@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useCursos } from '../hooks/useCursos';
 import { formatearPrecio, calcularCalificacionPromedio } from '../utils/formatters';
 import '../styles/TarjetaCurso.css';
@@ -35,7 +36,11 @@ export default function TarjetaCurso({ cursoId, variante = 'catalogo' }) {
         </div>
 
         <div className="tarjeta-body">
-          <h3 className="curso-nombre">{curso.nombre}</h3>
+          <h3 className="curso-nombre">
+            <Link to={`/cursos/${curso._id}`} style={{ textDecoration: 'none', color: 'inherit' }} className="titulo-curso-link">
+              {curso.nombre}
+            </Link>
+          </h3>
           <p className="curso-docente">👨‍🏫 {curso.docente}</p>
           <p className="curso-descripcion">{curso.descripcion}</p>
 
@@ -51,13 +56,16 @@ export default function TarjetaCurso({ cursoId, variante = 'catalogo' }) {
           </div>
         </div>
 
-        <div className="tarjeta-acciones">
+        <div className="tarjeta-acciones" style={{ display: 'flex', gap: '8px', width: '100%' }}>
+          <Link to={`/cursos/${curso._id}`} className="btn btn-outline" style={{ flex: 1, textDecoration: 'none', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px' }}>
+            ℹ️ Detalle
+          </Link>
           {!inscripto ? (
-            <button className="btn btn-primary" onClick={handleInscribirse}>
+            <button className="btn btn-primary" onClick={handleInscribirse} style={{ flex: 1 }}>
               ✓ Inscribirse
             </button>
           ) : (
-            <button className="btn btn-success" disabled>
+            <button className="btn btn-success" disabled style={{ flex: 1, cursor: 'default' }}>
               ✓ Inscrito
             </button>
           )}
@@ -72,7 +80,11 @@ export default function TarjetaCurso({ cursoId, variante = 'catalogo' }) {
       <article className="tarjeta-curso inscripcion">
         <div className="inscripcion-header">
           <div className="inscripcion-info">
-            <h4 className="inscripcion-nombre">{inscripcionActual?.nombreCurso}</h4>
+            <h4 className="inscripcion-nombre">
+              <Link to={`/cursos/${curso._id}`} style={{ textDecoration: 'none', color: 'inherit' }} className="titulo-curso-link">
+                {inscripcionActual?.nombreCurso}
+              </Link>
+            </h4>
             <p className="inscripcion-docente">{inscripcionActual?.docente}</p>
           </div>
           <span className={`badge-estado ${inscripcionActual?.estado.toLowerCase()}`}>
@@ -97,9 +109,9 @@ export default function TarjetaCurso({ cursoId, variante = 'catalogo' }) {
           <button className="btn btn-outline" onClick={handleDesinscribirse}>
             🗑️ Desinscribirse
           </button>
-          <button className="btn btn-primary">
+          <Link to={`/cursos/${curso._id}`} className="btn btn-primary" style={{ textDecoration: 'none', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             📖 Continuar
-          </button>
+          </Link>
         </div>
       </article>
     );
@@ -119,22 +131,3 @@ export default function TarjetaCurso({ cursoId, variante = 'catalogo' }) {
     </article>
   );
 }
-
-/*
-COMENTARIOS DEL COMPONENTE TarjetaCurso:
-
-Características:
-- ✓ Componente reutilizable con múltiples variantes
-- ✓ Recibe cursoId como prop y obtiene datos desde Context
-- ✓ Soporta 3 variantes: 'catalogo', 'inscripcion', 'simple'
-- ✓ Integración con Context API (useCursos hook)
-- ✓ Manejo de estados: inscrito/no inscrito
-- ✓ Acciones: inscribirse/desinscribirse
-- ✓ Uso de utilidades: formatearPrecio, calcularCalificacionPromedio
-
-Requerimientos cumplidos:
-- ✓ Componente funcional reutilizable
-- ✓ JSX bien estructurado
-- ✓ Acceso a estado global sin props drilling
-- ✓ Interacción con funcionalidades (CRUD de inscripciones)
-*/

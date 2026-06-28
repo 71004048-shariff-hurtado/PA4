@@ -2,7 +2,10 @@ import { useCursos } from '../hooks/useCursos';
 import '../styles/Usuario.css';
 
 export default function Usuario() {
-  const { usuarioActual, inscripciones } = useCursos();
+  const { usuarioActual, inscripciones, logout } = useCursos();
+
+  // Safeguard en caso de renderizado antes de que termine la redirección
+  if (!usuarioActual) return null;
 
   return (
     <div className="usuario-container">
@@ -25,7 +28,7 @@ export default function Usuario() {
           </div>
           <div className="stat-item">
             <span className="stat-valor">
-              {inscripciones.reduce((acc, i) => acc + i.progreso, 0) / inscripciones.length || 0}%
+              {Math.round(inscripciones.reduce((acc, i) => acc + i.progreso, 0) / inscripciones.length) || 0}%
             </span>
             <span className="stat-label">Progreso Promedio</span>
           </div>
@@ -38,33 +41,11 @@ export default function Usuario() {
         </div>
 
         <div className="usuario-acciones">
-          <button className="btn-perfil">✏️ Editar Perfil</button>
-          <button className="btn-perfil">🔐 Cambiar Contraseña</button>
-          <button className="btn-perfil btn-salir">🚪 Cerrar Sesión</button>
+          <button className="btn-perfil" type="button" onClick={() => alert("Función de edición en mantenimiento.")}>✏️ Editar Perfil</button>
+          <button className="btn-perfil" type="button" onClick={() => alert("Función de cambio de clave en mantenimiento.")}>🔐 Cambiar Contraseña</button>
+          <button className="btn-perfil btn-salir" type="button" onClick={logout}>🚪 Cerrar Sesión</button>
         </div>
       </div>
     </div>
   );
 }
-
-/*
-COMENTARIOS DEL COMPONENTE Usuario:
-
-Características:
-- ✓ Muestra perfil del usuario actual
-- ✓ Datos obtenidos desde Context API (useCursos)
-- ✓ Estadísticas del usuario
-- ✓ Acciones de perfil
-- ✓ Diseño responsive
-- ✓ Reutiliza datos globales sin props
-
-Datos mostrados:
-- Nombre del usuario
-- Rol (Estudiante)
-- Email
-- Total de cursos inscritos
-- Progreso promedio
-- Cursos completados
-*/
-
-

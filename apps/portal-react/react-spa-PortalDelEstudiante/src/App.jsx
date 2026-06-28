@@ -2,8 +2,11 @@ import { Routes, Route } from "react-router-dom";
 import { CursosProvider } from "./context/CursosContext";
 import CursosDelEstudiante from "./pages/CursosDelEstudiante";
 import CatalogoCursos from "./pages/CatalogoCursos";
+import DetalleCurso from "./pages/DetalleCurso";
+import Login from "./pages/Login";
 import Usuario from "./components/Usuario";
 import Navbar from "./components/Navbar";
+import ProtectedRoute from "./components/ProtectedRoute";
 import './App.css';
 
 export default function App() {
@@ -11,31 +14,43 @@ export default function App() {
     <CursosProvider>
       <Navbar />
       <Routes>
-        <Route path="/" element={<CursosDelEstudiante />} />
-        <Route path="/catalogocursos" element={<CatalogoCursos />} />
-        <Route path="/usuario" element={<Usuario />} />
+        {/* Ruta Pública de Autenticación */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Rutas Protegidas del Estudiante */}
+        <Route 
+          path="/" 
+          element={
+            <ProtectedRoute>
+              <CursosDelEstudiante />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/catalogocursos" 
+          element={
+            <ProtectedRoute>
+              <CatalogoCursos />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/cursos/:id" 
+          element={
+            <ProtectedRoute>
+              <DetalleCurso />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/usuario" 
+          element={
+            <ProtectedRoute>
+              <Usuario />
+            </ProtectedRoute>
+          } 
+        />
       </Routes>
     </CursosProvider>
   );
 }
-
-/*
-COMENTARIOS DE LA APLICACIÓN:
-
-Estructura Global:
-- ✓ CursosProvider envuelve toda la aplicación
-- ✓ Contexto API disponible en todos los componentes
-- ✓ React Router configurado con 3 rutas principales
-- ✓ Navbar es persistente en todas las vistas
-
-Rutas disponibles:
-- "/" → CursosDelEstudiante (HOME - Mis Inscripciones)
-- "/catalogocursos" → CatalogoCursos (Catálogo con filtros)
-- "/usuario" → Usuario (Perfil del estudiante)
-
-Navegación SPA:
-- Sin recarga de página entre vistas
-- Cambio fluido de contenido
-- Menú responsivo en móviles
-*/
-

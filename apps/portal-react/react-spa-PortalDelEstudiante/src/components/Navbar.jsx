@@ -6,7 +6,7 @@ import '../styles/Navbar.css';
 export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const ubicacion = useLocation();
-  const { usuarioActual, inscripciones } = useCursos();
+  const { usuarioActual, inscripciones, logout } = useCursos();
 
   const toggleMenu = () => {
     setMenuAbierto(!menuAbierto);
@@ -15,6 +15,22 @@ export default function Navbar() {
   const esActivo = (ruta) => {
     return ubicacion.pathname === ruta ? 'active' : '';
   };
+
+  // Si no hay un usuario autenticado (estamos en el Login), renderizar un Navbar simple
+  if (!usuarioActual) {
+    return (
+      <nav className="navbar">
+        <div className="navbar-container">
+          <div className="navbar-brand">
+            <div className="brand-link">
+              <span className="brand-icon">🎓</span>
+              <span className="brand-text">Edu<em>Tech</em></span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <nav className="navbar">
@@ -63,6 +79,24 @@ export default function Navbar() {
             <span className="user-name">{usuarioActual.nombre}</span>
             <span className="user-role">{usuarioActual.rol}</span>
           </div>
+          <button 
+            onClick={logout} 
+            className="btn-nav-logout"
+            title="Cerrar sesión"
+            aria-label="Cerrar sesión"
+            style={{
+              background: 'transparent',
+              border: 'none',
+              fontSize: '18px',
+              cursor: 'pointer',
+              marginLeft: '12px',
+              padding: '4px',
+              display: 'flex',
+              alignItems: 'center'
+            }}
+          >
+            🚪
+          </button>
         </div>
 
         {/* Botón hamburguesa */}
@@ -79,12 +113,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
-// Comentario: Este componente reemplaza el Navbar vacío anterior.
-// Implementa:
-// - Navegación entre vistas sin recarga (SPA)
-// - Indicador de inscripciones activas
-// - Información del usuario actual
-// - Menú responsivo en móviles
-// - Usa hooks: useState para toggle del menú, useLocation para detectar ruta activa
-// - Usa Context API (useCursos) para obtener datos del usuario
