@@ -149,6 +149,20 @@ npm run dev
 
 ---
 
+### 🔑 Credenciales y Accesos Rápidos para Validación
+
+Una vez iniciados todos los servicios, se puede acceder y evaluar la solución utilizando las siguientes direcciones y credenciales de prueba pre-cargadas:
+
+* **Portal del Estudiante (React SPA):** [http://localhost:5173/](http://localhost:5173/)
+* **Sitio Público y Catálogo (Next.js):** [http://localhost:3000/](http://localhost:3000/)
+* **Backend REST API:** [http://localhost:5000/api](http://localhost:5000/api)
+
+#### 👥 Usuario de Prueba (Estudiante Demo):
+* **Correo:** `carlos@example.com`
+* **Contraseña:** `123456`
+
+---
+
 ## 🔒 Mecanismo Responsable de Sesión y Token JWT
 El sistema aplica un flujo de autenticación robusto basado en tokens JWT (JSON Web Tokens):
 
