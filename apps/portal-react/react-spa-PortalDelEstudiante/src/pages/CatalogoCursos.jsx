@@ -163,7 +163,7 @@ export default function CatalogoCursos() {
           <div className="cursos-grid">
             {cursosMostrados.length > 0 ? (
               cursosMostrados.map(curso => (
-                <TarjetaCurso key={curso.id} cursoId={curso.id} variante="catalogo" />
+                <TarjetaCurso key={curso._id} cursoId={curso._id} variante="catalogo" />
               ))
             ) : (
               <div className="sin-resultados">

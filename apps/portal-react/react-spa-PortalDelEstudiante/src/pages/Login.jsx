@@ -57,7 +57,6 @@ export default function Login() {
           <div className="form-group">
             <label htmlFor="email">Correo Electrónico</label>
             <div className="input-with-icon">
-              <span className="input-icon">📧</span>
               <input
                 type="email"
                 id="email"
@@ -73,7 +72,6 @@ export default function Login() {
           <div className="form-group">
             <label htmlFor="password">Contraseña</label>
             <div className="input-with-icon">
-              <span className="input-icon">🔐</span>
               <input
                 type="password"
                 id="password"

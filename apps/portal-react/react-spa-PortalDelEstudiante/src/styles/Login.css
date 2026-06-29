@@ -111,7 +111,7 @@
 
 .input-with-icon input {
   width: 100%;
-  padding: 12px 14px 12px 42px;
+  padding: 12px 14px;
   font-size: 15px;
   font-family: var(--sans);
   border: 1px solid var(--border);
