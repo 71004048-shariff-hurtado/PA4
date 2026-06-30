@@ -7,9 +7,9 @@
 
 
 ## 🎥 Video de Sustentación en YouTube
-El video explicativo del proyecto, detallando la arquitectura y mostrando a todos los integrantes con sus cámaras encendidas, se encuentra disponible en el siguiente enlace:
+El video explicativo del proyecto, detallando la arquitectura se encuentra disponible en el siguiente enlace:
 
-📺 Enlace de Youtube: **[]()**
+📺 Enlace de Youtube: **[]https://youtu.be/tNaWcJnIGzw()**
 
 ---
 
