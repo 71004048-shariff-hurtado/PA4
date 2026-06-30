@@ -9,7 +9,7 @@
 ## 🎥 Video de Sustentación en YouTube
 El video explicativo del proyecto, detallando la arquitectura se encuentra disponible en el siguiente enlace:
 
-📺 Enlace de Youtube: **[]https://youtu.be/tNaWcJnIGzw()**
+📺 Enlace de Youtube: **[https://youtu.be/tNaWcJnIGzw]()**
 
 ---
 
